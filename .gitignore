@@ -1,0 +1,10 @@
+# Segredos e identificadores pessoais: nunca versionar
+config/credentials.json
+config/items.json
+
+# Extratos gerados (dados bancários)
+extratos/
+
+node_modules/
+.DS_Store
+Thumbs.db
