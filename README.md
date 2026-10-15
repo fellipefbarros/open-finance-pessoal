@@ -8,10 +8,41 @@ skill que ensina o Claude Code a usar essa API sem tropeçar nos detalhes do pla
 
 Sem servidor, sem dependências: só Node.js 20+ e um Chrome/Edge para gerar PDF.
 
-O que sai:
+## O que você passa a ter
+
+Depois de conectar os bancos, a API devolve, para cada um deles e atualizado todo dia:
+
+- **Saldos** de conta corrente, poupança e limite de cheque especial.
+- **Extrato completo** de cada conta, com data, descrição, valor e a **categoria já classificada**
+  pelo Pluggy (mercado, restaurante, transporte, assinatura, transferência, salário...).
+- **Cartões de crédito**: cada compra, com data da compra, número de parcelas, estorno e
+  pagamento, mais as **faturas fechadas** com valor total, vencimento e pagamentos.
+- **Investimentos**: renda fixa, ações, FII e fundos, com posição atual.
+- **Dados do titular** que o banco envia: nome, CPF, agência, conta, nome do produto.
+- Até **5 bancos** no mesmo lugar, consultados por um único par de credenciais.
+
+Com isso em mãos, dá para construir o que você quiser, só para você. Alguns exemplos:
+
+- **Planilha que se preenche sozinha** com todos os gastos do mês, por categoria.
+- **Orçamento e metas**: comparar o que foi gasto com o planejado e avisar quando passar.
+- **Alertas**: compra acima de um valor, fatura chegando, saldo abaixo do mínimo, cobrança
+  repetida que você não reconhece, assinatura que subiu de preço.
+- **Visão consolidada** de todos os bancos num dashboard, incluindo quanto está investido.
+- **Controle de parcelas**: quanto ainda vai cair nos próximos meses em cada cartão.
+- **Extratos e relatórios** em CSV, HTML ou PDF, para você ou para o contador.
+- **Agente de IA** que responde "quanto gastei com restaurante em setembro" ou "qual o
+  gasto médio com mercado" lendo direto dos seus dados.
+- **Importar para o app de finanças** que você já usa, sem digitar nada.
+
+O que o plano pessoal não entrega: previdência (PGBL/VGBL), saldo após cada lançamento,
+contas de outras pessoas, atualização em tempo real (é diária). Os detalhes estão na skill.
+
+## O que já vem pronto neste repositório
+
+Três scripts, sem dependências, que são os exemplos iniciais de tudo acima:
 
 - `extrato-90d.mjs`: um CSV por conta (corrente, poupança, cartão) + um HTML com todos os
-  lançamentos dos últimos 90 dias, com categoria dada pelo próprio Pluggy.
+  lançamentos dos últimos N dias, com a categoria dada pelo Pluggy.
 - `extrato-cc-pdf.mjs`: um PDF por banco, só conta corrente, período que você escolher, com
   nome, CPF, agência e conta no cabeçalho.
 - `listar-contas.mjs`: mostra o que a API enxerga de cada banco (bom para conferir a configuração).
